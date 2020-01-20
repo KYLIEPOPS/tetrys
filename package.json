@@ -1,0 +1,17 @@
+{
+	"name": "tetrys",
+	"version": "1.6.0",
+	"description": "A fun game that plays in a popup",
+	"main": "app.js",
+	"scripts": {
+		"webpack": "webpack --config webpack.config.js",
+		"build": "node scripts/compile.js && npm run webpack"
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"jsdom": "^15.2.1",
+		"webpack": "^4.41.2",
+		"webpack-cli": "^3.3.10"
+	}
+}
