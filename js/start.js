@@ -37,33 +37,6 @@ window.onload = function() {
 	init();
 };
 
-// function uiKeyDown() {
-// 	init();
-// }
-
-// function uiMousePressed() {
-// 	switch (selected) {
-// 		case 0:
-// 			reset();
-// 			init();
-// 			if (end) {
-// 				location.reload();
-// 				reset();
-// 				init();
-// 			}
-// 			break;
-// 		case 1:
-// 			init();
-// 			break;
-
-// 		case 2:
-// 			window.open(
-// 				"https://chrome.google.com/webstore/detail/popup-tetrys/bnchicpgbdgahiecgofdabidjihblaff",
-// 				"_blank"
-// 			);
-// 			break;
-// 	}
-// }
 function addArray(array) {
 	let result = 0;
 	array.forEach(value => {
