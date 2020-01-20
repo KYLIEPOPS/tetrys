@@ -1,7 +1,7 @@
 {
 	"name": "Tetrys",
 	"short_name": "Tetrys",
-	"version": "1.10.0",
+	"version": "1.10.1",
 	"description": "A fun game that plays in a popup",
 
 	"icons": {

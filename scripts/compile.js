@@ -13,10 +13,10 @@ fs.writeFileSync(
 
 const playerjs = fs.readFileSync(path.join(__dirname, "..", "js", "player.js"));
 const startjs = fs.readFileSync(path.join(__dirname, "..", "js", "start.js"));
-const tetrisjs = fs.readFileSync(path.join(__dirname, "..", "js", "tetris.js"));
+const tetrysjs = fs.readFileSync(path.join(__dirname, "..", "js", "tetrys.js"));
 
 const combinedjs =
-	startjs.toString() + tetrisjs.toString() + playerjs.toString();
+	startjs.toString() + tetrysjs.toString() + playerjs.toString();
 
 fs.writeFileSync(
 	path.join(__dirname, "..", "combined.js"),
