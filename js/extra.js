@@ -18,8 +18,8 @@ function addCoffeButton() {
 
 window.addEventListener("load", () => {
 	const r = Math.random();
-	// const x = Math.round(r * 4);
-	const x = 1;
+	const x = Math.round(r * 6);
+	// const x = 1;
 
 	if (
 		location.hash == "#support_opened" ||
