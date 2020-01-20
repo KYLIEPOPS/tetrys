@@ -29,54 +29,13 @@ window.onload = function() {
 	scl = canvas.width / 10;
 	//
 
-	// document.addEventListener("mousemove", mousemove);
-	// document.addEventListener("keydown", uiKeyDown);
-	// canvas.addEventListener("mousedown", uiMousePressed);
-
 	if (localStorage._scoreResetSept2018 === undefined) {
 		localStorage._hscore = hscore = 0;
 		localStorage._scoreResetSept2018 = true;
 	}
 
-	// requestAnimationFrame(drawUI);
 	init();
 };
-
-// function drawUI() {
-// 	if (started) {
-// 		document.removeEventListener("keydown", uiKeyDown);
-// 		canvas.removeEventListener("mousedown", uiMousePressed);
-// 		return;
-// 	}
-
-// 	ctx.globalAlpha = 1;
-// 	ctx.fillStyle = "black";
-// 	ctx.fillRect(0, 0, canvas.width, canvas.height);
-// 	drawMatrix(background, { x: 0, y: 0 });
-
-// 	highlight();
-
-// 	ctx.globalAlpha = 1;
-// 	ctx.fillStyle = "white";
-// 	ctx.font = scl + "px monospace";
-// 	ctx.fillText("> New Game", scl * 2, scl * 10);
-// 	ctx.fillText("> Continue", scl * 2, scl * 11);
-// 	ctx.fillText("> Info", scl * 2, scl * 12);
-
-// 	requestAnimationFrame(drawUI);
-// }
-
-// function highlight() {
-// 	if (Math.round(mouse.y / scl) > 9 && Math.ceil(mouse.y / scl) < 13) {
-// 		ctx.fillStyle = "gray";
-// 		ctx.globalAlpha = 0.2;
-// 		ctx.fillRect(0, mouse.y - scl / 2, canvas.width, scl);
-// 		//Selected set to num between 0 and 3
-// 		selected = Math.round(mouse.y / scl) - 10;
-// 	} else {
-// 		selected = null;
-// 	}
-// }
 
 // function uiKeyDown() {
 // 	init();
