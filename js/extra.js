@@ -19,7 +19,6 @@ function addCoffeButton() {
 window.addEventListener("load", () => {
 	const r = Math.random();
 	const x = Math.round(r * 6);
-	// const x = 1;
 
 	if (
 		location.hash == "#support_opened" ||
@@ -36,7 +35,3 @@ window.addEventListener("load", () => {
 document
 	.querySelector(".x-bmc-button")
 	.addEventListener("click", removeCoffeeButton);
-
-document.querySelector(".never-bmc-button").addEventListener("click", () => {
-	removeCoffeeButton();
-});
