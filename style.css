@@ -1,0 +1,84 @@
+html,
+body {
+  overflow-y: hidden;
+}
+
+body {
+  background: #222;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+*[hidden] {
+  display: none;
+}
+
+canvas {
+  display: block;
+  width: 300px;
+  height: 540px;
+  padding: 3px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+div.background {
+  z-index: -1;
+}
+
+div.black-canvas-box {
+  position: absolute;
+  width: 294px;
+  height: 534px;
+  margin: 3px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: black;
+}
+
+div.red-line {
+  position: absolute;
+  top: 91px;
+  left: 3px;
+  width: 294px;
+  height: 1px;
+  background: red;
+}
+
+div.bmc {
+  background: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 3px;
+  margin-top: 1px;
+  padding: 2px 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+div.bmc img.coffee {
+  height: 35px;
+  padding: 8px 12px;
+}
+
+div.bmc a.text {
+  color: white;
+  font-size: 16px;
+  margin: auto 0;
+  -webkit-transform: translateY(-1px);
+          transform: translateY(-1px);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+div.bmc a.text span.bmc {
+  font-weight: bold;
+  text-decoration: underline;
+}
+/*# sourceMappingURL=style.css.map */

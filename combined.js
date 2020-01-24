@@ -101,10 +101,13 @@ let ctx,
 	score = 0,
 	hscore,
 	end = false,
-	mouse = { x: 0, y: 0 },
+	mouse = localStorage.mouse
+		? JSON.parse(localStorage.mouse)
+		: { x: 0, y: 0 },
 	restartBtn,
 	hoverRestartBtn = false,
 	pauseBtn,
+	playBtn,
 	hoverPauseBtn,
 	pause = false,
 	horizontalSpeed = 12,
@@ -152,6 +155,9 @@ function init() {
 
 	pauseBtn = new Image();
 	pauseBtn.src = "../images/pause.png";
+
+	playBtn = new Image();
+	playBtn.src = "../images/play.png";
 
 	var verticalMovementInterval = setInterval(
 		playerVerticalMovement,
@@ -296,8 +302,8 @@ function drawPauseBtn() {
 	} else {
 		hoverPauseBtn = false;
 	}
-
-	ctx.drawImage(pauseBtn, scl * this.offsetX, scl * this.offsetY, scl, scl);
+	const btn = pause ? playBtn : pauseBtn;
+	ctx.drawImage(btn, scl * this.offsetX, scl * this.offsetY, scl, scl);
 }
 
 function die() {
@@ -495,6 +501,8 @@ function mousemove(e) {
 	let rect = canvas.getBoundingClientRect();
 	mouse.x = (e.clientX - rect.left) * mx;
 	mouse.y = (e.clientY - rect.top) * my;
+
+	localStorage.setItem("mouse", JSON.stringify(mouse));
 }
 
 function mousePressed(e) {
@@ -502,6 +510,9 @@ function mousePressed(e) {
 		reset(true);
 	} else if (hoverPauseBtn) {
 		pause = !pause;
+
+		// Remove button press
+		up = down = left = right = false;
 	}
 }
 var dropScoreInterval = 1,
@@ -681,19 +692,19 @@ var left = false,
 	down = false,
 	right = false;
 function playerVerticalMovement() {
-	if (down) {
+	if (down && !pause) {
 		score += dropScoreInterval;
 		playerDrop();
 	}
 }
 
 function playerHorizontalMovement() {
-	if (left) {
+	if (left && !pause) {
 		player.x--;
 		if (collide()) {
 			player.x++;
 		}
-	} else if (right) {
+	} else if (right && !pause) {
 		player.x++;
 		if (collide()) {
 			player.x--;
@@ -708,23 +719,11 @@ function keyPressed(event) {
 		if (event.type == "keydown") {
 			switch (event.keyCode) {
 				case 87: // up
-					playerRotate(1);
-					break;
 				case 38: // up
 					playerRotate(1);
 					break;
 
 				case 65: // left
-					if (
-						player.y +
-							player.shape.length -
-							getBottomBlanks(player.shape) <
-						0
-					)
-						break;
-					left = true;
-					break;
-
 				case 37: // left
 					if (
 						player.y +
@@ -737,24 +736,11 @@ function keyPressed(event) {
 					break;
 
 				case 83: // down
-					down = true;
-					break;
-
 				case 40: // down
 					down = true;
 					break;
 
 				case 68: // right
-					if (
-						player.y +
-							player.shape.length -
-							getBottomBlanks(player.shape) <
-						0
-					)
-						break;
-					right = true;
-					break;
-
 				case 39: // right
 					if (
 						player.y +
@@ -764,6 +750,10 @@ function keyPressed(event) {
 					)
 						break;
 					right = true;
+					break;
+
+				case 27:
+					localStorage.mouse = JSON.stringify({ x: -10, y: -10 });
 					break;
 			}
 		} else if (event.type == "keyup") {

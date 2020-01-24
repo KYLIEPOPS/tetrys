@@ -1,32 +1,31 @@
 <!DOCTYPE html>
 <html style="height: 540px;">
-	<style>
-		html,
-		body {
-			background: #222;
-			overflow-y: hidden;
-		}
-
-		* {
-			padding: 0;
-			margin: 0;
-		}
-
-		canvas {
-			display: block;
-			width: 300px;
-			height: 540px;
-			padding: 3px;
-			box-sizing: border-box;
-		}
-	</style>
+	<style id="styles"></style>
 
 	<head>
 		<title>Tetrys!</title>
 	</head>
 
 	<body>
+		<div class="background black-canvas-box"></div>
+		<div class="background red-line"></div>
+
 		<canvas id="canvas" width="450" height="810"></canvas>
 		<script src="app.js"></script>
+		<script src="bmc.js"></script>
+
+		<div class="bmc" style="height: 0; display: none;">
+			<a href="https://www.buymeacoffee.com/klUfyKN" target="_blank"
+				><img class="coffee" src="images/bmc.svg" alt="☕"
+			/></a>
+			<a
+				class="text"
+				href="https://www.buymeacoffee.com/klUfyKN"
+				target="_blank"
+			>
+				Want to support me? <span class="bmc">Buy me a coffee</span
+				><b>!</b>
+			</a>
+		</div>
 	</body>
 </html>

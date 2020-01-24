@@ -175,19 +175,19 @@ var left = false,
 	down = false,
 	right = false;
 function playerVerticalMovement() {
-	if (down) {
+	if (down && !pause) {
 		score += dropScoreInterval;
 		playerDrop();
 	}
 }
 
 function playerHorizontalMovement() {
-	if (left) {
+	if (left && !pause) {
 		player.x--;
 		if (collide()) {
 			player.x++;
 		}
-	} else if (right) {
+	} else if (right && !pause) {
 		player.x++;
 		if (collide()) {
 			player.x--;
@@ -202,23 +202,11 @@ function keyPressed(event) {
 		if (event.type == "keydown") {
 			switch (event.keyCode) {
 				case 87: // up
-					playerRotate(1);
-					break;
 				case 38: // up
 					playerRotate(1);
 					break;
 
 				case 65: // left
-					if (
-						player.y +
-							player.shape.length -
-							getBottomBlanks(player.shape) <
-						0
-					)
-						break;
-					left = true;
-					break;
-
 				case 37: // left
 					if (
 						player.y +
@@ -231,24 +219,11 @@ function keyPressed(event) {
 					break;
 
 				case 83: // down
-					down = true;
-					break;
-
 				case 40: // down
 					down = true;
 					break;
 
 				case 68: // right
-					if (
-						player.y +
-							player.shape.length -
-							getBottomBlanks(player.shape) <
-						0
-					)
-						break;
-					right = true;
-					break;
-
 				case 39: // right
 					if (
 						player.y +
@@ -258,6 +233,10 @@ function keyPressed(event) {
 					)
 						break;
 					right = true;
+					break;
+
+				case 27:
+					localStorage.mouse = JSON.stringify({ x: -10, y: -10 });
 					break;
 			}
 		} else if (event.type == "keyup") {

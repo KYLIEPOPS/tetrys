@@ -54,10 +54,13 @@ let ctx,
 	score = 0,
 	hscore,
 	end = false,
-	mouse = { x: 0, y: 0 },
+	mouse = localStorage.mouse
+		? JSON.parse(localStorage.mouse)
+		: { x: 0, y: 0 },
 	restartBtn,
 	hoverRestartBtn = false,
 	pauseBtn,
+	playBtn,
 	hoverPauseBtn,
 	pause = false,
 	horizontalSpeed = 12,
@@ -105,6 +108,9 @@ function init() {
 
 	pauseBtn = new Image();
 	pauseBtn.src = "../images/pause.png";
+
+	playBtn = new Image();
+	playBtn.src = "../images/play.png";
 
 	var verticalMovementInterval = setInterval(
 		playerVerticalMovement,
@@ -249,8 +255,8 @@ function drawPauseBtn() {
 	} else {
 		hoverPauseBtn = false;
 	}
-
-	ctx.drawImage(pauseBtn, scl * this.offsetX, scl * this.offsetY, scl, scl);
+	const btn = pause ? playBtn : pauseBtn;
+	ctx.drawImage(btn, scl * this.offsetX, scl * this.offsetY, scl, scl);
 }
 
 function die() {
@@ -448,6 +454,8 @@ function mousemove(e) {
 	let rect = canvas.getBoundingClientRect();
 	mouse.x = (e.clientX - rect.left) * mx;
 	mouse.y = (e.clientY - rect.top) * my;
+
+	localStorage.setItem("mouse", JSON.stringify(mouse));
 }
 
 function mousePressed(e) {
@@ -455,5 +463,8 @@ function mousePressed(e) {
 		reset(true);
 	} else if (hoverPauseBtn) {
 		pause = !pause;
+
+		// Remove button press
+		up = down = left = right = false;
 	}
 }
