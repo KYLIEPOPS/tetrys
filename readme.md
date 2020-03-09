@@ -1,6 +1,6 @@
 # Tetrys
 
-- Disclaimer: This code is old. I made it way before i knew anything about organizing and making better code. Also, the game is greatly inspired by @meth-meth-method's tetris game both in looks and some code. 
+- Disclaimer: This code is old. I made it way back when i was pretty much a beginner. Some parts of the game are inspired by @meth-meth-method's tetris game video. The most striking similarity is probably the color palette, and also the rotate function (i did not manage to make it myself at the time).
 
 ## 1.10.3
 
