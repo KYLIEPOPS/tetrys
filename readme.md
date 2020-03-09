@@ -1,5 +1,7 @@
 # Tetrys
 
+- Disclaimer: This code is old. I made it way before i knew anything about organizing and making better code. Also, the game is greatly inspired by @meth-meth-method's tetris game both in looks and some code. 
+
 ## 1.10.3
 
 -   Added red background line behind canvas to avoid blink on load
