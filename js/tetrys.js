@@ -105,6 +105,14 @@ function init() {
 
 	restartBtn = new Image();
 	restartBtn.src = "../images/restart.png";
+	
+	// this feature makes it easy to restart the the game!
+	if (event.type == "keydown") {
+		switch (event.keyCode) {
+			case 82: // r key
+				restartBtn;
+		}
+	}
 
 	pauseBtn = new Image();
 	pauseBtn.src = "../images/pause.png";
